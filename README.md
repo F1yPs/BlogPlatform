@@ -1,6 +1,6 @@
 # WebSocket chat (Basic application)
 
-Education project Java/SpringBoot/WebSocket
+Education project Java/SpringBoot/WebSocket(IETF RFC 6455)
 
 [Link tutorial by Bouali Ali](https://www.youtube.com/watch?v=TywlS9iAZCM)
 

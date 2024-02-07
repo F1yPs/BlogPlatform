@@ -1,0 +1,36 @@
+services:
+  mongodb:
+    image: mongo
+    container_name: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=test
+      - MONGO_INITDB_ROOT_PASSWORD=test
+  mongo-express:
+    image: mongo-express
+    container_name: mongo_express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=test
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=test
+      - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
+      - ME_CONFIG_MONGODB_SERVER=mongo
+    links:
+      - mongodb
+volumes:
+  mongo: { }
+
+
+#  https://stackoverflow.com/questions/47901561/how-to-run-mongodb-and-mongo-express-with-docker-compose
+#https://copyprogramming.com/howto/mongodb-mongo-express-docker-compose-causing-mongoerror-authentication-failed
+# https://github.com/mongo-express/mongo-express/issues/437
+#  https://programmerall.com/article/59102677988/
+#  https://github.com/mongo-express/mongo-express/issues/352
+
+    #      - ME_CONFIG_MONGODB_SERVER=mongodb
+  #      - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
